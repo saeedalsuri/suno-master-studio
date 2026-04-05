@@ -5,10 +5,26 @@
 ![Platform](https://img.shields.io/badge/platform-Windows-blueviolet)
 ![Electron](https://img.shields.io/badge/Electron-33-black)
 ![React](https://img.shields.io/badge/React-19-61dafb)
+![Stars](https://img.shields.io/github/stars/saeedalsuri/suno-master-studio)
+![Forks](https://img.shields.io/github/forks/saeedalsuri/suno-master-studio)
 
 **A SUNO V5 compliant music prompt generator for professional music production.**
 
 Generate industry-standard music prompts with automatic V5 compliance checking, 57+ regional templates, and intelligent genre matching.
+
+## Screenshots
+
+### Prompt Forge
+![Prompt Forge](screenshots/prompt-forge.png)
+Generate V5-compliant style anchors and song structures with one click.
+
+### Lyric Studio
+![Lyric Studio](screenshots/lyric-studio.png)
+Write and validate lyrics with structure templates and BPM checking.
+
+### V5 Template Engine
+![V5 Template Engine](screenshots/v5-template-engine.png)
+Browse, validate, and manage 57+ regional music templates.
 
 ## Overview
 
@@ -16,11 +32,14 @@ Suno Master Studio V6 is a desktop application that helps music producers create
 
 ## Key Features
 
-- **Prompt Forge** - Generate V5-compliant style anchors and song structures
-- **Lyric Studio** - Write and validate lyrics with structure templates  
-- **V5 Template Engine** - Browse, validate, and manage 57+ regional templates
-- **V5 Compliance Checking** - Automatic validation against SUNO V5 rules
-- **Regional Templates** - Support for Arabic, Persian, Turkish, South Asian, Latin, and more
+| Feature | Description |
+|---------|-------------|
+| **Prompt Forge** | Generate V5-compliant style anchors and song structures |
+| **Lyric Studio** | Write and validate lyrics with structure templates |
+| **V5 Template Engine** | Browse, validate, and manage 57+ regional templates |
+| **Compliance Checking** | Automatic validation against SUNO V5 rules |
+| **Regional Templates** | Support for Arabic, Persian, Turkish, South Asian, Latin, and more |
+| **Soft Blend Mode** | Smooth genre fusion for creative combinations |
 
 ## SUNO V5 Compliance
 
@@ -35,30 +54,44 @@ This app enforces strict SUNO V5 compliance:
 | No spam words | (removed) | `High Quality, Radio-Ready` |
 | Pink Elephant fix | `Acoustic, Ambient` | `No Drums` |
 
+### V5 Rules Explained
+
+- **Singular Instruments** - SUNO expects singular form: "Guitar" not "Guitars"
+- **BPM Suffix** - Always include "BPM": "128 BPM" not "128"
+- **Extended Solos** - Use `[Extended Guitar Solo]` to force SUNO to play solos
+- **Genre First** - Start style prompts with genre: "Arabic Pop, 125 BPM..."
+- **No Spam** - Remove generic words: "High Quality", "Polished", "Radio-Ready"
+- **Pink Elephant** - Convert negatives to positives: "No Drums" → "Acoustic, Ambient"
+
 ## Regional Templates
 
 ### Arabic
-- Lebanese (Dabke-Pop, Ballads, Jazz)
-- Khaleeji/Saudi (Romance, Dance, 6/8 Khabbaiti)
-- Egyptian (Shaabi, Folk Ballad, Jazz Fusion)
-- Maghreb (Rai, Gnawa, Moroccan Fusion)
+- Lebanese (Dabke-Pop, Ballads, Jazz, 90s Style)
+- Khaleeji/Saudi (Romance, Dance, 6/8 Khabbaiti, Wihda)
+- Egyptian (Shaabi, Folk Ballad, Jazz Fusion, Nu-Disco)
+- Maghreb (Rai, Gnawa, Moroccan Fusion, Chaabi)
 
 ### Persian/Iranian
-- Traditional (Dastgah, Avaz)
-- Modern Iranian Pop (1970s Retro, Tehran Style)
+- Traditional (Dastgah, Avaz, Classical)
+- Modern Iranian Pop (1970s Retro, Tehran Style, Googoosh)
 
 ### Turkish & Ottoman
 - Classical Turkish Makam
 - Neo-Tarab Fusion
+- Arabesque
 
 ### South Asian
-- Qawwali (Traditional, Muqabla)
+- Qawwali (Traditional, Muqabla, Sufi)
 - Ghazal (Urdu, Mohani Style)
-- Bollywood
-- Punjabi
+- Bollywood (Filmi, Item Number, 90s)
+- Punjabi (Folk, Attan)
 
-### Other
-- Latin, Rock, Electronic, Country, Orchestral
+### Other Genres
+- Latin (Salsa, Merengue, Bossa Nova)
+- Rock (Alternative, Stadium, Latin-Rock)
+- Electronic (Techno, Synthwave, Drill, Trap)
+- Country (Modern, Ballad)
+- Orchestral (Cinematic, Marching, Epic)
 
 ## Installation
 
@@ -86,9 +119,10 @@ npm run build
 
 ### Prompt Forge
 1. Enter a genre or musical description (e.g., "1970s Googoosh style", "Lebanese Dabke")
-2. Toggle Duet Mode or Soft Blend if needed
-3. Click "Forge Style" to generate
+2. Toggle **Duet Mode** or **Soft Blend** if needed
+3. Click **Forge Style** to generate
 4. Copy the Style Anchor to SUNO
+5. Check V5 compliance status
 
 ### Lyric Studio
 1. Navigate to Lyric Studio tab
@@ -98,16 +132,18 @@ npm run build
 
 ### V5 Template Engine
 1. Browse 57+ pre-built templates
-2. Filter by genre or BPM
+2. Filter by genre or BPM range
 3. Validate templates for V5 compliance
 4. Copy validated templates
 
 ## Tech Stack
 
-- **Framework:** Electron 33
-- **Frontend:** React 19 + Vite 6
-- **Build Tool:** electron-builder
-- **Styling:** CSS3 with glassmorphism UI
+| Technology | Version |
+|------------|---------|
+| Electron | 33 |
+| React | 19 |
+| Vite | 6 |
+| electron-builder | 25 |
 
 ## Project Structure
 
@@ -117,30 +153,63 @@ SunoMasterStudio_V6/
 │   ├── App.jsx                    # Main app component
 │   ├── App.css                    # Main styles
 │   ├── utils/
-│   │   └── sunoLogic.js           # V5 Logic Core
+│   │   └── sunoLogic.js           # V5 Logic Core (765 lines)
 │   ├── data/
 │   │   ├── options.js             # Genre knowledge base
 │   │   └── templates.json         # 57+ regional templates
 │   └── components/
 │       ├── LyricStudio.jsx        # Lyric editor
+│       ├── LyricStudio.css        # Studio styles
 │       └── V5TemplateEngine.jsx   # Template browser
 ├── build/
 │   └── icon.ico                   # App icon
 ├── electron-main.js               # Electron main process
-└── package.json
+├── package.json                  # Dependencies & scripts
+└── vite.config.js                # Vite configuration
 ```
 
-## License
+## API Reference
 
-MIT License - feel free to use, modify, and distribute.
+The V5 Logic Core provides these functions:
+
+```javascript
+import { SunoLogicCore } from './utils/sunoLogic';
+
+// Generate a creative prompt
+const prompt = SunoLogicCore.generateCreativePrompt(
+  "Lebanese Dabke",  // genre input
+  isDuet,            // duet mode
+  isSoftBlend         // soft blend mode
+);
+
+// Check V5 compliance
+const compliance = SunoLogicCore.checkV5Compliance({
+  style: prompt.style,
+  bpm: prompt.bpm,
+  structure: prompt.structure
+});
+
+// Apply automatic fixes
+const fixed = SunoLogicCore.applyV5Fixes(template);
+```
 
 ## Contributing
 
-Contributions welcome! Please submit issues and pull requests.
+Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ## Repository
 
 **GitHub:** https://github.com/saeedalsuri/suno-master-studio
+
+**Issues:** https://github.com/saeedalsuri/suno-master-studio/issues
 
 ---
 

@@ -1,9 +1,24 @@
 {
   "name": "suno-master-studio",
   "version": "6.0.0",
-  "description": "SUNO V5 Compliant Music Prompt Generator",
+  "description": "SUNO V5 Compliant Music Prompt Generator - Generate professional music prompts with 57+ regional templates",
   "author": "Suno Master Team",
   "license": "MIT",
+  "keywords": [
+    "suno-ai",
+    "music-generator",
+    "electron",
+    "react",
+    "arabic-music",
+    "persian-music",
+    "music-production",
+    "prompt-maker",
+    "music-app",
+    "regional-music",
+    "qawwali",
+    "ghazal",
+    "bollywood"
+  ],
   "main": "electron-main.js",
   "scripts": {
     "dev": "vite",
