@@ -1,0 +1,14 @@
+node_modules/
+dist/
+dist_electron/
+dist_v6/
+release-builds/
+standalone-build/
+dist_portable/
+dist_final/
+dist_v56/
+.vite/
+.env
+*.log
+.DS_Store
+Thumbs.db
